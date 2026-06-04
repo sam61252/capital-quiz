@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Flags &amp; Capitals</title>
+    <meta name="description" content="An offline flags &amp; capitals quiz — 207 countries." />
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Flags" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="icon" href="./icons/icon-192.png" />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ===================== HOME ===================== -->
+      <section id="home" class="view">
+        <header class="home-header">
+          <div class="logo" aria-hidden="true">🌍</div>
+          <h1 class="app-title">Flags &amp; Capitals</h1>
+          <p class="app-tagline" id="tagline">flags &amp; capitals quiz</p>
+        </header>
+
+        <div id="mode-list" class="mode-list"></div>
+
+        <footer class="home-footer">
+          <p>Tap a mode to start. Works fully offline.</p>
+          <p class="credit">
+            Data: mledoze/countries (ODbL) · Flags: lipis/flag-icons (MIT)
+          </p>
+        </footer>
+      </section>
+
+      <!-- ===================== QUIZ ===================== -->
+      <section id="quiz" class="view hidden">
+        <div class="topbar">
+          <button id="home-btn" class="icon-btn" type="button" aria-label="Back to menu">
+            ‹ Menu
+          </button>
+          <div class="streaks">
+            <span class="streak" title="Current streak">🔥 <b id="cur-streak">0</b></span>
+            <span class="best" title="Best streak this mode">Best <b id="best-streak">0</b></span>
+          </div>
+        </div>
+
+        <div id="prompt" class="prompt"></div>
+        <div id="options" class="options"></div>
+
+        <div id="feedback" class="feedback hidden">
+          <p id="note" class="note"></p>
+          <button id="next-btn" class="next-btn" type="button">Next →</button>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

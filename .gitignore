@@ -1,0 +1,10 @@
+# Dependencies (dev-only — the shipped app is fully static)
+node_modules/
+
+# Local tooling / preview config
+.claude/
+
+# OS / logs
+.DS_Store
+Thumbs.db
+*.log

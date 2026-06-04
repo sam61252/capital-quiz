@@ -1,0 +1,16 @@
+{
+  "name": "capital-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Flags & Capitals — an offline, mobile-first geography quiz PWA",
+  "scripts": {
+    "build": "node scripts/build-data.mjs",
+    "build:data": "node scripts/build-data.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "flag-icons": "^7.0.0",
+    "world-countries": "^5.0.0"
+  }
+}
