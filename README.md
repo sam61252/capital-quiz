@@ -20,6 +20,23 @@ questions biased toward famous look-alikes (Chad/Romania, the Nordic crosses, th
 pan-Arab tricolours, etc.). It's **endless streak** play: keep your run going; a wrong
 answer resets the current streak. Your best streak per mode is saved on the device.
 
+### Study mode (the course)
+
+Beyond quizzing, **Study** actually teaches the material with spaced repetition:
+
+- **Learn cards** for each country — flag, capital(s), location pinned on an offline
+  world map, and real facts (neighbours, region, area, language, currency), plus a
+  look-alike-flag tip where relevant.
+- **Practice** ramps from multiple-choice recognition to **typed recall**.
+- **Spaced repetition** (a Leitner system) schedules reviews so it sticks; your mastery
+  is saved on-device and shown as a **progress map**.
+- Focus on **Flags**, **Capitals**, or **both**.
+
+### Filter by area
+
+A scope picker on the home screen limits **both** quiz and study to a continent or a
+sub-region — e.g. just *Western Europe* — or All 207.
+
 ---
 
 ## Run it locally (to preview / develop)
@@ -27,8 +44,8 @@ answer resets the current streak. Your best streak per mode is saved on the devi
 You need [Node.js](https://nodejs.org) (any recent version).
 
 ```sh
-npm install        # installs the two dev-only tools (data + flags)
-npm run build      # generates data/, assets/flags/, icons/, precache-manifest.json
+npm install        # installs dev-only build tools (data, flags, world map)
+npm run build      # generates data/, assets/ (flags + map), icons/, precache list
 npm run serve      # serves the app at http://localhost:8080
 ```
 
@@ -79,15 +96,17 @@ load — works **completely offline** (try Airplane Mode).
 
 GitHub Pages updates automatically when you `git push`. Because the app caches itself
 for offline use, bump the cache version so phones pick up changes: edit
-[`sw.js`](sw.js) and change `flags-capitals-v1` → `-v2` (etc.) whenever you redeploy
-changed files.
+[`sw.js`](sw.js) and bump the cache version (e.g. `flags-capitals-v2` → `-v3`) whenever
+you redeploy changed files.
 
 ## Customizing
 
 - **Which countries** — edit `EXTRA_ALLOW` in [`scripts/build-data.mjs`](scripts/build-data.mjs)
   (UN members are always included; the build refuses to ship fewer than 206), then
   `npm run build`.
-- **Look-alike flag groups** — edit `LOOKALIKE_GROUPS` in [`app.js`](app.js).
+- **Look-alike flag groups** — edit `LOOKALIKE_GROUPS` in [`js/data.js`](js/data.js).
+- **Flag look-alike tips** (learn cards) — edit [`data/flag-tips.json`](data/flag-tips.json).
+- **Spaced-repetition intervals** — `INTERVAL` in [`js/srs.js`](js/srs.js).
 - **Colors / layout** — [`styles.css`](styles.css) (CSS variables at the top; supports
   light & dark automatically).
 
@@ -95,6 +114,9 @@ changed files.
 
 - Country data: [mledoze/countries](https://github.com/mledoze/countries) — ODbL.
 - Flags: [lipis/flag-icons](https://github.com/lipis/flag-icons) — MIT.
+- World map: built from [Natural Earth](https://www.naturalearthdata.com/) via
+  [world-atlas](https://github.com/topojson/world-atlas) — public domain.
 
-Flag depictions and country/capital data are quiz facts from the sources above; this
-project just presents them.
+Country/capital/flag data and the map are facts from the sources above; this project
+just presents them. The flag look-alike tips in `data/flag-tips.json` were written for
+this project.

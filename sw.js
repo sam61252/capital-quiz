@@ -1,6 +1,6 @@
 // Service worker: precache the whole app (shell + data + every flag) so it works
 // fully offline once loaded. Bump CACHE whenever you redeploy changed assets.
-const CACHE = 'flags-capitals-v1';
+const CACHE = 'flags-capitals-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
